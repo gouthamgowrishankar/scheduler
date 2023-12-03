@@ -16,7 +16,7 @@ def check_list_len():
 @app.on_event('startup')
 def init_data():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(check_list_len, 'cron', second='*/15')
+    scheduler.add_job(check_list_len, 'interval', minutes=3)
     scheduler.start()
 
 @app.get('/')
